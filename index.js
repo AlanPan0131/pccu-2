@@ -51,11 +51,12 @@ window.onpopstate=function(){
       var listKeys=[];
       var list;
       if(!loStData){
-      firebase.firestore().collection("set").doc('menu').get().then(querySnapshot=>{
-list=querySnapshot.data();
-          localStorage.setItem('data',JSON.stringify(list));
+        getURL('https://alanpan0131.github.io/pccu-2/newData.json').then(querySnapshot=>{
+          list=JSON.parse(querySnapshot);
+          localStorage.setItem('data',querySnapshot);
           outOfBar();
-    })
+              })
+
       }else{
          list=JSON.parse(loStData);
         outOfBar();
@@ -291,10 +292,9 @@ document.addEventListener('click',e=>{
     if(!Tname){
       var loSt=localStorage.getItem('Tname');
       if(!loSt){
-        firebase.firestore().collection("set").doc('teacher').get().then(querySnapshot=>{
-var dataOfTname=querySnapshot.data();
-Tname=dataOfTname.teacher;
-          localStorage.setItem('Tname',JSON.stringify(dataOfTname));
+        getURL('https://alanpan0131.github.io/pccu-2/teacher.json').then(querySnapshot=>{
+Tname=JSON.parse(querySnapshot).teacher;
+          localStorage.setItem('Tname',querySnapshot);
     })
 }else Tname=JSON.parse(loSt).teacher;
 }}else if(DOMclass){
@@ -332,4 +332,16 @@ function modeChange(e){
     document.documentElement.style.setProperty('--item',"#212529");
     localStorage.setItem('theme','light');
   }
+}
+function getURL(url){
+  return new Promise((re,j)=>{
+    function reqListener () {
+      re(this.responseText);
+    }
+    var oReq = new XMLHttpRequest();
+    oReq.addEventListener("load", reqListener);
+    oReq.open("GET", url);
+    oReq.send();
+  })
+ 
 }
