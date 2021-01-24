@@ -52,27 +52,27 @@ window.onpopstate=function(){
       var list;
       if(!loStData){
         getURL('https://alanpan0131.github.io/pccu-2/newData.json').then(querySnapshot=>{
-          list=querySnapshot;
-          localStorage.setItem('data',JSON.stringify(querySnapshot));
+          list=JSON.parse(querySnapshot);
+          listKeys=Object.keys(list);
+          localStorage.setItem('data',querySnapshot);
           outOfBar();
               })
-
       }else{
          list=JSON.parse(loStData);
-        outOfBar();
+         listKeys=Object.keys(list);
+          outOfBar();
     }
     function outOfBar(){
-      listKeys=Object.keys(list);
-      console.log(listKeys);
             var leftBar='';
             var colorBar='b3';
         for(var i=0;i<listKeys.length;i++){
           if(i==5)colorBar='b2';
           else if(i==18)colorBar='self';
-          for(var j=0;j<listKeys.length;j++)if(list[listKeys[j]].index==i)leftBar+='<div class="btn-group shadow-sm" role="group"><li class="btn btn-outline-'+colorBar+'" onclick="outBar(this)">'+listKeys[j]+'<ul class="dropdown-menu clo">'+inOfBar(j)+'</ul></li></div>';
+          leftBar+='<div class="btn-group shadow-sm" role="group"><li class="btn btn-outline-'+colorBar+'" onclick="outBar(this)">'+listKeys[i]+'<ul class="dropdown-menu clo">'+inOfBar(i)+'</ul></li></div>';
         }
-        console.log(leftBar);
-        document.getElementById('bar').innerHTML=leftBar;
+       
+            document.getElementById('bar').innerHTML=leftBar;
+         
         }
         function inOfBar(i){
             var str='';
@@ -203,7 +203,6 @@ if(e){
       var arr=Object.keys(snapshot);
         dataOfEvaluation[e]=snapshot;
         var str='';
-        var state='';
         var t=0;
         function chSt(p){
           if(p>=80)return 'success';
@@ -295,8 +294,8 @@ document.addEventListener('click',e=>{
       var loSt=localStorage.getItem('Tname');
       if(!loSt){
         getURL('https://alanpan0131.github.io/pccu-2/teacher.json').then(querySnapshot=>{
-Tname=querySnapshot.teacher;
-          localStorage.setItem('Tname',JSON.stringify(querySnapshot));
+Tname=JSON.parse(querySnapshot).teacher;
+          localStorage.setItem('Tname',querySnapshot);
     })
 }else Tname=JSON.parse(loSt).teacher;
 }}else if(DOMclass){
