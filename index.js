@@ -71,6 +71,7 @@ window.onpopstate=function(){
           else if(i==18)colorBar='self';
           for(var j=0;j<listKeys.length;j++)if(list[listKeys[j]].index==i)leftBar+='<div class="btn-group shadow-sm" role="group"><li class="btn btn-outline-'+colorBar+'" onclick="outBar(this)">'+listKeys[j]+'<ul class="dropdown-menu clo">'+inOfBar(j)+'</ul></li></div>';
         }
+        console.log(leftBar);
         document.getElementById('bar').innerHTML=leftBar;
         }
         function inOfBar(i){
