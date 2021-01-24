@@ -52,8 +52,8 @@ window.onpopstate=function(){
       var list;
       if(!loStData){
         getURL('https://alanpan0131.github.io/pccu-2/newData.json').then(querySnapshot=>{
-          list=JSON.parse(querySnapshot);
-          localStorage.setItem('data',querySnapshot);
+          list=querySnapshot;
+          localStorage.setItem('data',JSON.stringify(querySnapshot));
           outOfBar();
               })
 
@@ -293,8 +293,8 @@ document.addEventListener('click',e=>{
       var loSt=localStorage.getItem('Tname');
       if(!loSt){
         getURL('https://alanpan0131.github.io/pccu-2/teacher.json').then(querySnapshot=>{
-Tname=JSON.parse(querySnapshot).teacher;
-          localStorage.setItem('Tname',querySnapshot);
+Tname=querySnapshot.teacher;
+          localStorage.setItem('Tname',JSON.stringify(querySnapshot));
     })
 }else Tname=JSON.parse(loSt).teacher;
 }}else if(DOMclass){
