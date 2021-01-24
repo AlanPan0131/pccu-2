@@ -63,6 +63,7 @@ window.onpopstate=function(){
     }
     function outOfBar(){
       listKeys=Object.keys(list);
+      console.log(listKeys);
             var leftBar='';
             var colorBar='b3';
         for(var i=0;i<listKeys.length;i++){
