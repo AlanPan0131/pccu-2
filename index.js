@@ -7,6 +7,7 @@ firebase.initializeApp({
     messagingSenderId: "804144825666",
     appId: "1:804144825666:web:5ea09984cf37ec60bcb4db"
   });
+  localStorage.clear();
   if(location.href=='https://pccu-2.web.app/'&&'serviceWorker' in navigator){
       navigator.serviceWorker.register('service-worker.js').catch(err=>console.log(err))};
 var isIOS=navigator.userAgent.match(/(iPad|iPhone|iPod)/g);
