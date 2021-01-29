@@ -7,7 +7,7 @@ firebase.initializeApp({
     messagingSenderId: "804144825666",
     appId: "1:804144825666:web:5ea09984cf37ec60bcb4db"
   });
-  localStorage.clear();
+  localStorage.clear();//--------------------------------
   if(location.href=='https://pccu-2.web.app/'&&'serviceWorker' in navigator){
       navigator.serviceWorker.register('service-worker.js').catch(err=>console.log(err))};
 var isIOS=navigator.userAgent.match(/(iPad|iPhone|iPod)/g);
@@ -37,7 +37,7 @@ window.onpopstate=function(){
     var data={};
     var arrOfData=[];
     if (navigator.standalone||window.matchMedia('(display-mode: standalone)').matches)document.getElementById('ins').style.display='none';
-    setTimeout(()=>{document.querySelectorAll('.loadOut')[0].style.display='none';},8000)
+    // setTimeout(()=>{document.querySelectorAll('.loadOut')[0].style.display='none';},8000)
     function load(){
      if(!localStorage.getItem('theme')){
   if(window.matchMedia('(prefers-color-scheme:dark)').matches){
@@ -71,9 +71,7 @@ window.onpopstate=function(){
           else if(i==18)colorBar='self';
           leftBar+='<div class="btn-group shadow-sm" role="group"><li class="btn btn-outline-'+colorBar+'" onclick="outBar(this)">'+listKeys[i]+'<ul class="dropdown-menu clo">'+inOfBar(i)+'</ul></li></div>';
         }
-       
             document.getElementById('bar').innerHTML=leftBar;
-         
         }
         function inOfBar(i){
             var str='';
