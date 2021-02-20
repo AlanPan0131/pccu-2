@@ -290,7 +290,6 @@ function input(){
   // .catch(err => {
   //   console.log(err);
   // });
-  
       if(k)Tname.forEach(n=>{
     if(n.indexOf(k)!=-1)su+='<div class="dropdown-item" onclick="searchT(\''+n+'\',\'teacher\')">'+n+'</div>';
     });
