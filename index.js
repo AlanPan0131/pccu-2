@@ -8,7 +8,7 @@ firebase.initializeApp({
     appId: "1:804144825666:web:5ea09984cf37ec60bcb4db"
   });
   localStorage.clear();//--------------------------------
-  const index = algoliasearch("8BR3C9EXC0", "dcfb0544c009e9d6219cc5ff38365e67").initIndex("teacher");
+  // const index = algoliasearch("8BR3C9EXC0", "dcfb0544c009e9d6219cc5ff38365e67").initIndex("teacher");
 
   if(location.href=='https://pccu-2.web.app/'&&'serviceWorker' in navigator){
       navigator.serviceWorker.register('service-worker.js').catch(err=>console.log(err))};
