@@ -280,20 +280,20 @@ function input(){
     document.getElementById('sug').innerHTML='';
   }else if(k!=kw){
   var su='';
-    index.search(k)
-  .then(({ hits }) => {
-    hits.forEach(n=>{
-      su+='<div class="dropdown-item" onclick="searchT(\''+n.name+'\',\'teacher\')">'+n['_highlightResult'].name.value+'</div>';
+  //   index.search(k)
+  // .then(({ hits }) => {
+  //   hits.forEach(n=>{
+  //     su+='<div class="dropdown-item" onclick="searchT(\''+n.name+'\',\'teacher\')">'+n['_highlightResult'].name.value+'</div>';
 
-    })
-  })
-  .catch(err => {
-    console.log(err);
-  });
-  /*
+  //   })
+  // })
+  // .catch(err => {
+  //   console.log(err);
+  // });
+  
       if(k)Tname.forEach(n=>{
     if(n.indexOf(k)!=-1)su+='<div class="dropdown-item" onclick="searchT(\''+n+'\',\'teacher\')">'+n+'</div>';
-    });*/
+    });
  document.getElementById('sug').innerHTML=su;
 }
 kw=k;
