@@ -1,15 +1,6 @@
-firebase.initializeApp({
-    apiKey: "AIzaSyBR131VC-b-_ch7qajjc5hlWJ6yZIkfeIw",
-    authDomain: "pccu-2.firebaseapp.com",
-    databaseURL: "https://pccu-2.firebaseio.com",
-    projectId: "pccu-2",
-    storageBucket: "pccu-2.appspot.com",
-    messagingSenderId: "804144825666",
-    appId: "1:804144825666:web:5ea09984cf37ec60bcb4db"
-  });
-  localStorage.clear();//--------------------------------
-  // const index = algoliasearch("8BR3C9EXC0", "dcfb0544c009e9d6219cc5ff38365e67").initIndex("teacher");
 
+  localStorage.clear();
+  
   if(location.href=='https://pccu-2.web.app/'&&'serviceWorker' in navigator){
       navigator.serviceWorker.register('service-worker.js').catch(err=>console.log(err))};
 var isIOS=navigator.userAgent.match(/(iPad|iPhone|iPod)/g);
@@ -280,16 +271,6 @@ function input(){
     document.getElementById('sug').innerHTML='';
   }else if(k!=kw){
   var su='';
-  //   index.search(k)
-  // .then(({ hits }) => {
-  //   hits.forEach(n=>{
-  //     su+='<div class="dropdown-item" onclick="searchT(\''+n.name+'\',\'teacher\')">'+n['_highlightResult'].name.value+'</div>';
-
-  //   })
-  // })
-  // .catch(err => {
-  //   console.log(err);
-  // });
       if(k)Tname.forEach(n=>{
     if(n.indexOf(k)!=-1)su+='<div class="dropdown-item" onclick="searchT(\''+n+'\',\'teacher\')">'+n+'</div>';
     });
@@ -358,4 +339,3 @@ function getURL(url){
  
 }
 
-//跨域[陳潁峯 張瀞文 連啓元] 生科系[廖啓政] 張有㨗 倫理[連啓元] 外文[李廼澔 張玉峯] 通識[黃贊勲 鍾㬩陵 姚蕴慧] 全商系[唐儲勲] 中文[孫守眞] 沈髙毅 凃文慈 凃玉盞 池畑裕介 吳亘曜 吳美鳯 王啓行
