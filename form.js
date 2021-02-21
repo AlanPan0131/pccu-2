@@ -1,4 +1,3 @@
-
   function load(){
     if(localStorage.getItem('theme')=='dark'){
       document.documentElement.style.setProperty('--bgc',"#0e4b4a");
@@ -7,7 +6,6 @@
       document.querySelectorAll('nav')[0].classList='navbar navbar-expand-lg navbar-dark bg-dark';
       document.getElementById('upa').style.color="rgba(255,255,255,.5)";
    }
-  
     var path=location.pathname.split('/');
     if(path.length==3)document.getElementById('code').value=path[2];
     }
