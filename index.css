@@ -215,29 +215,7 @@ color:#212529;
   list-style: none;
   color:rgba(0,0,0,.5);
   margin-right:10px;
-}
-  
-       
-        @keyframes loadImg{
-            from{
-                margin:0 auto 0 auto;
-            }
-            90%{
-                margin:calc(50vh - 90px) auto 0 auto;
-            }
-            to{
-                margin:calc(50vh - 180px) auto 0 auto;
-            }
-        }
-        @keyframes loadWord{
-            from{
-                opacity:0;
-            }
-            to{
-               opacity:1;
-            }
-        }
-        
+}        
         .noReport{
           display:inline-block;
         }
