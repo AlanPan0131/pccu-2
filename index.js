@@ -27,7 +27,7 @@ window.onpopstate=function(){
     var Tname;
     var mob=0;
     var open={};
-    var data={};
+    var data={};//sjnlknj
     var arrOfData=[];
     if (navigator.standalone||window.matchMedia('(display-mode: standalone)').matches)document.getElementById('ins').style.display='none';
     
