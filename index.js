@@ -31,6 +31,7 @@ window.onpopstate=function(){
     var arrOfData=[];
     if (navigator.standalone||window.matchMedia('(display-mode: standalone)').matches)document.getElementById('ins').style.display='none';
     // setTimeout(()=>{document.querySelectorAll('.loadOut')[0].style.display='none';},8000)
+    load()
     function load(){
      if(!localStorage.getItem('theme')){
   if(window.matchMedia('(prefers-color-scheme:dark)').matches){
