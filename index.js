@@ -30,17 +30,34 @@ window.onpopstate=function(){
     var data={};
     var arrOfData=[];
     if (navigator.standalone||window.matchMedia('(display-mode: standalone)').matches)document.getElementById('ins').style.display='none';
-    // setTimeout(()=>{document.querySelectorAll('.loadOut')[0].style.display='none';},8000)
-
+    
     function load(){
      if(!localStorage.getItem('theme')){
   if(window.matchMedia('(prefers-color-scheme:dark)').matches){
     if(!document.getElementById('customSwitch1').checked)document.getElementById('mode').click();
+      else{
+        document.getElementById('mode').innerText="極黑";
+    document.getElementById('mode').style.color="#fff";
+    document.documentElement.style.setProperty('--bgc',"#0e4b4a");
+    document.querySelectorAll('nav')[0].classList='navbar navbar-expand-lg navbar-dark bg-dark';
+    document.getElementById('upa').style.color="rgba(255,255,255,.5)";
+    document.documentElement.style.setProperty('--menu',"#343a40");
+    document.documentElement.style.setProperty('--item',"#fff");
+      }
     localStorage.setItem('theme','dark')
   }else{
     localStorage.setItem('theme','light')
-  }}else if(localStorage.getItem('theme')=='dark'&&!document.getElementById('customSwitch1').checked)document.getElementById('mode').click();
-  
+  }}else if(localStorage.getItem('theme')=='dark')
+  if(!document.getElementById('customSwitch1').checked)document.getElementById('mode').click();
+  else{
+    document.getElementById('mode').innerText="極黑";
+    document.getElementById('mode').style.color="#fff";
+    document.documentElement.style.setProperty('--bgc',"#0e4b4a");
+    document.querySelectorAll('nav')[0].classList='navbar navbar-expand-lg navbar-dark bg-dark';
+    document.getElementById('upa').style.color="rgba(255,255,255,.5)";
+    document.documentElement.style.setProperty('--menu',"#343a40");
+    document.documentElement.style.setProperty('--item',"#fff");
+  }
       if(window.innerWidth<=900)document.getElementById('upa').innerHTML=document.getElementById('upa').innerHTML.split('，<br>').toString();
       var loStData=localStorage.getItem('data');
       var listKeys=[];
