@@ -33,7 +33,6 @@ window.onpopstate=function(){
     // setTimeout(()=>{document.querySelectorAll('.loadOut')[0].style.display='none';},8000)
 
     function load(){
-      console.log(localStorage.getItem('theme'),window.matchMedia('(prefers-color-scheme:dark)').matches)
      if(!localStorage.getItem('theme')){
   if(window.matchMedia('(prefers-color-scheme:dark)').matches){
     document.getElementById('mode').click();
@@ -181,7 +180,7 @@ if(e){
       document.getElementById('sug').classList.remove('show');
         if(!data[path]){
           var nData={};
-          firebase.firestore().collection("class").where("teacher", "array-contains", e).get().then(querySnapshot=>{
+          var db = firebase.firestore().collection("class").where("teacher", "array-contains", e).get().then(querySnapshot=>{
             querySnapshot.forEach(function(doc) {
         nData[doc.id]=doc.data();
             })
