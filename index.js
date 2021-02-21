@@ -35,11 +35,11 @@ window.onpopstate=function(){
     function load(){
      if(!localStorage.getItem('theme')){
   if(window.matchMedia('(prefers-color-scheme:dark)').matches){
-    document.getElementById('mode').click();
+    if(!document.getElementById('customSwitch1').checked)document.getElementById('mode').click();
     localStorage.setItem('theme','dark')
   }else{
     localStorage.setItem('theme','light')
-  }}else if(localStorage.getItem('theme')=='dark')document.getElementById('mode').click();
+  }}else if(localStorage.getItem('theme')=='dark'&&!document.getElementById('customSwitch1').checked)document.getElementById('mode').click();
   
       if(window.innerWidth<=900)document.getElementById('upa').innerHTML=document.getElementById('upa').innerHTML.split('，<br>').toString();
       var loStData=localStorage.getItem('data');
