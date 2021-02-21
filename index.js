@@ -1,5 +1,5 @@
 
-  localStorage.clear();
+  // localStorage.clear();
   
   if(location.href=='https://pccu-2.web.app/'&&'serviceWorker' in navigator){
       navigator.serviceWorker.register('service-worker.js').catch(err=>console.log(err))};
