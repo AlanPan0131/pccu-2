@@ -216,27 +216,8 @@ color:#212529;
   color:rgba(0,0,0,.5);
   margin-right:10px;
 }
-  .loadOut{
-            position:fixed;
-            top:0;
-            left:0;
-            background-color:var(--bgc);
-            width:100vw;
-            height:100vh;
-            z-index:30;
-        }
-        .loadIn{
-            width:180px;
-            margin:calc(50vh - 180px) auto 0 auto;
-            animation:loadImg 3s;
-            z-index:32;
-            border-radius:999%;
-            background-color:#81c2b593;
-            padding:10px;
-        }
-        .loadIn img{
-            width:100%;
-        }
+  
+       
         @keyframes loadImg{
             from{
                 margin:0 auto 0 auto;
@@ -256,13 +237,7 @@ color:#212529;
                opacity:1;
             }
         }
-        .loadOut h1{
-          z-index:31;
-          text-align:center;
-          color:#fff;
-          opacity:0;
-          animation:loadWord 8s 3s forwards;
-        }
+        
         .noReport{
           display:inline-block;
         }
