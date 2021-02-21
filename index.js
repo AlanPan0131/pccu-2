@@ -33,6 +33,7 @@ window.onpopstate=function(){
     // setTimeout(()=>{document.querySelectorAll('.loadOut')[0].style.display='none';},8000)
 
     function load(){
+      console.log(localStorage.getItem('theme'),window.matchMedia('(prefers-color-scheme:dark)').matches)
      if(!localStorage.getItem('theme')){
   if(window.matchMedia('(prefers-color-scheme:dark)').matches){
     document.getElementById('mode').click();
