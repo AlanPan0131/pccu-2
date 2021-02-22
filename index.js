@@ -9,9 +9,10 @@ function install(){
     bootbox.alert("在Safari開啟本網站->點下方有方形和箭頭的按鈕->加入主畫面");
     return;
   }
+  if(deferredPrompt){
   deferredPrompt.prompt();
   deferredPrompt.userChoice.then((choiceResult) => {});
-}
+}}
 
 window.onpopstate=function(){
   var loc=decodeURIComponent(location.pathname).split('/');
@@ -187,7 +188,7 @@ arrOfNewD.forEach(c=>{
             name=name[name.length-1];
             name=name.split('：');
             name= name[name.length-1];
-              str+='<div class="card"><div class="card-header btn-outline-self dropdown-toggle" data-toggle="collapse" data-target="#id-'+arr[i]+'" aria-expanded="true" aria-controls="collapseOne" onclick="evaluation(\''+arr[i]+'\')"><h5>'+name+'\n\n'+snapshot[arr[i]].id+'\n\n'+snapshot[arr[i]].teacher+'</h5></div><div id="id-'+arr[i]+'" class="collapse hide"></div></div>';
+              str+='<div class="card"><div class="card-header btn-outline-self dropdown-toggle" data-toggle="collapse" data-target="#id-'+arr[i]+'" aria-expanded="true" aria-controls="collapseOne" onclick="evaluation(\''+arr[i]+'\')"><h5>'+snapshot[arr[i]].college+' '+name+'\n\n'+snapshot[arr[i]].id+'\n\n'+snapshot[arr[i]].teacher+'</h5></div><div id="id-'+arr[i]+'" class="collapse hide"></div></div>';
             }
             document.getElementById('accordion').innerHTML=str;
         }
