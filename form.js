@@ -7,7 +7,19 @@
       document.getElementById('upa').style.color="rgba(255,255,255,.5)";
    }
     var path=location.pathname.split('/');
-    if(path.length==3)document.getElementById('code').value=path[2];
+    if(path.length==3){
+      firebase.firestore().doc().get(path[2]).then(function(doc) {
+        if (doc.exists) {
+          var dt=doc.data();
+          document.getElementById('code').value=dt.college+' '+dt.name+' '+dt.teacher;
+        }else{
+            console.log("No such document!");
+        }
+    }).catch(function(error) {
+        console.log("Error getting document:", error);
+    });
+      
+    }
     }
     function send(){
       function checkString(str){
