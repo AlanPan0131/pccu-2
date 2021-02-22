@@ -1,8 +1,7 @@
 
   // localStorage.clear();
   
-  if(location.href=='https://pccu-2.web.app/'&&'serviceWorker' in navigator){
-      navigator.serviceWorker.register('service-worker.js').catch(err=>console.log(err))};
+  document.getElementById("search").onclick=input
 var isIOS=navigator.userAgent.match(/(iPad|iPhone|iPod)/g);
 let deferredPrompt;
 window.addEventListener('beforeinstallprompt', (e) => {
@@ -28,10 +27,22 @@ window.onpopstate=function(){
     var mob=0;
     var open={};
     var data={};
+    if(localStorage.getItem('FB'))data=JSON.parse(localStorage.getItem('FB'))
     var arrOfData=[];
     if (navigator.standalone||window.matchMedia('(display-mode: standalone)').matches)document.getElementById('ins').style.display='none';
     
     function load(){
+      if(location.href=='https://pccu-2.web.app/'&&'serviceWorker' in navigator)navigator.serviceWorker.register('service-worker.js').catch(err=>console.log(err));
+      document.getElementById("search").addEventListener("input",input);
+      if(Tname.length==0){
+        var loSt=localStorage.getItem('Tname');
+        if(!loSt){
+          getURL('https://alanpan0131.github.io/pccu-2/teacher.json').then(querySnapshot=>{
+  Tname=JSON.parse(querySnapshot).teacher;
+            localStorage.setItem('Tname',querySnapshot);
+      })
+  }else Tname=JSON.parse(loSt).teacher;
+  }
      if(!localStorage.getItem('theme')){
   if(window.matchMedia('(prefers-color-scheme:dark)').matches){
     if(!document.getElementById('customSwitch1').checked)document.getElementById('mode').click();
@@ -164,12 +175,12 @@ var newD={};
 arrOfNewD.forEach(c=>{
   arrOfData.push(c);
   data[c]=newD[c];
+  localStorage.setItem('FB',JSON.stringify(data))
 })
         });
         setTimeout(()=>write(e+'/'+b),200);
       })
-        }
-       else write(e+'/'+b);
+        }else write(e+'/'+b);
     }
     function write(e){
             var snapshot=data[e];
@@ -202,6 +213,7 @@ if(e){
         nData[doc.id]=doc.data();
             })
             data[path]=nData;
+            localStorage.setItem('FB',JSON.stringify(data))
             setTimeout(()=>write(path),200);
           })
       }else write(path);
@@ -282,6 +294,7 @@ function menu(){
   }}
 var kw='';
 function input(){
+  console.log('input')
   document.getElementById('sug').classList.add('show');
   var k=document.getElementById('search').value;
   if(!k){
@@ -300,15 +313,7 @@ document.addEventListener('click',e=>{
   var DOMclass=e.target.parentNode;
   if(e.target.id=="search"){
     if(kw)document.getElementById('sug').classList.add('show');
-    if(!Tname){
-      var loSt=localStorage.getItem('Tname');
-      if(!loSt){
-        getURL('https://alanpan0131.github.io/pccu-2/teacher.json').then(querySnapshot=>{
-Tname=JSON.parse(querySnapshot).teacher;
-          localStorage.setItem('Tname',querySnapshot);
-    })
-}else Tname=JSON.parse(loSt).teacher;
-}}else if(DOMclass){
+    }else if(DOMclass){
   DOMclass=Array.from(DOMclass.classList);
   if(DOMclass.indexOf('dropdown-menu')==-1&&DOMclass.indexOf('btn-group')==-1){
   Array.from(document.querySelectorAll('#bar')[0].querySelectorAll('.dropdown-menu')).forEach(d=>{
@@ -319,7 +324,7 @@ Tname=JSON.parse(querySnapshot).teacher;
 }}
 else if(window.innerWidth>900||kw=='')document.getElementById('sug').classList.remove('show');
 });
-document.getElementById("search").addEventListener("input",input);
+
 function openNew(e){
   location='https://pccu-2.web.app/form/'+e;
 }
