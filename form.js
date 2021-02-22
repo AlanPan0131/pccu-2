@@ -8,7 +8,7 @@
    }
     var path=location.pathname.split('/');
     if(path.length==3){
-      firebase.firestore().doc(path[2]).get().then(function(doc) {
+      firebase.firestore().collection("class").doc(path[2]).get().then(function(doc) {
         if (doc.exists) {
           var dt=doc.data();
           document.getElementById('code').value=dt.college+' '+dt.name+' '+dt.teacher;
