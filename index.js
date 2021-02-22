@@ -3,11 +3,7 @@
   
   document.getElementById("search").onclick=input
 var isIOS=navigator.userAgent.match(/(iPad|iPhone|iPod)/g);
-let deferredPrompt;
-window.addEventListener('beforeinstallprompt', (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-});
+
 function install(){
   if(isIOS){
     bootbox.alert("在Safari開啟本網站->點下方有方形和箭頭的按鈕->加入主畫面");
