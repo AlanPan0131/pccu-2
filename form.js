@@ -13,10 +13,11 @@
           var dt=doc.data();
           document.getElementById('code').value=dt.college+' '+dt.name+' '+dt.teacher;
         }else{
-            console.log("No such document!");
+            alert('課程參數錯誤')
+            location='https://pccu-2.web.app/';
         }
     }).catch(function(error) {
-        console.log("Error getting document:", error);
+        alert("連接資料庫失敗:", error);
     });
       
     }
