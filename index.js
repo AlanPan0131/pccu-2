@@ -294,7 +294,6 @@ function menu(){
   }}
 var kw='';
 function input(){
-  console.log('input')
   document.getElementById('sug').classList.add('show');
   var k=document.getElementById('search').value;
   if(!k){
