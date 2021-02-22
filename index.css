@@ -1,19 +1,4 @@
-:root{
-    --bgc:#aacdc6;
-    --menu:#fff;
-    --item:#212529;
-  }
-  ::-webkit-scrollbar {
-      width:0;
-}
-    html,body{
-        margin:0;
-        padding:0;
-        font-family:'Roboto','cwTeXYen';
-        background-color:var(--bgc);
-        font-weight: bold;
-        font-display: swap;
-    }
+
     a,.card-body h5{
       font-weight: bold;
     }
