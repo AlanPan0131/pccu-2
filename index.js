@@ -191,7 +191,7 @@ arrOfNewD.forEach(c=>{
             name=name[name.length-1];
             name=name.split('：');
             name= name[name.length-1];
-              str+='<div class="card"><div class="card-header btn-outline-self dropdown-toggle" data-toggle="collapse" data-target="#id-'+arr[i]+'" aria-expanded="true" aria-controls="collapseOne" onclick="evaluation(\''+arr[i]+'\')"><h5>'+name+'\n\n'+arr[i].split('-')[0]+'\n\n'+snapshot[arr[i]].teacher+'</h5></div><div id="id-'+arr[i]+'" class="collapse hide"></div></div>';
+              str+='<div class="card"><div class="card-header btn-outline-self dropdown-toggle" data-toggle="collapse" data-target="#id-'+arr[i]+'" aria-expanded="true" aria-controls="collapseOne" onclick="evaluation(\''+arr[i]+'\')"><h5>'+name+'\n\n'+snapshot[arr[i]].id+'\n\n'+snapshot[arr[i]].teacher+'</h5></div><div id="id-'+arr[i]+'" class="collapse hide"></div></div>';
             }
             document.getElementById('accordion').innerHTML=str;
         }
