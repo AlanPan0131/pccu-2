@@ -24,10 +24,10 @@ window.onpopstate=function(){
         else if(loc.length==3)FB(loc[1],loc[2],false);
         else document.getElementById('accordion')='';
 };
-    var Tname;
+    var Tname=[];
     var mob=0;
     var open={};
-    var data={};//sjnlknj
+    var data={};
     var arrOfData=[];
     if (navigator.standalone||window.matchMedia('(display-mode: standalone)').matches)document.getElementById('ins').style.display='none';
     
@@ -197,7 +197,7 @@ if(e){
       document.getElementById('sug').classList.remove('show');
         if(!data[path]){
           var nData={};
-          var db = firebase.firestore().collection("class").where("teacher", "array-contains", e).get().then(querySnapshot=>{
+          firebase.firestore().collection("class").where("teacher", "array-contains", e).get().then(querySnapshot=>{
             querySnapshot.forEach(function(doc) {
         nData[doc.id]=doc.data();
             })
