@@ -22,9 +22,7 @@ liff.init({liffId:'1655168208-DL1V4lM5'}).then(()=>{
   userID=liff.getContext().userId;
   console.log(userID)
   load();
-}).catch((error)=>{
-    alert(error)
-});
+})
 function load(){
 Promise.all([ajax(),firebase.database().ref('/users/' +userID).once('value')])
 .then(tdata=>{
@@ -39,7 +37,10 @@ return {pla:a.locationName,loca:a.parameter[0].parameterValue};
 el: '#collapseExample',
 data: {list:station}
 });
-if(!tdata[1].exists()&&false){
+if(!userID){
+    window.close();
+}
+if(!tdata[1].exists()){
 fetch(
     'https://api.line.me/v2/bot/profile/' +userID,
     {
