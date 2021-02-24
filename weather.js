@@ -38,9 +38,6 @@ return {pla:a.locationName,loca:a.parameter[0].parameterValue};
 el: '#collapseExample',
 data: {list:station}
 });
-if(!userID){
-    liff.closeWindow();
-}
 if(!tdata[1].exists()){
 fetch(
     'https://api.line.me/v2/bot/profile/' +userID,
@@ -121,3 +118,10 @@ else liff.closeWindow();
 function addEat(){
 VE.list.push({value:''});
 }
+
+setTimeout(()=>{
+    if(!userID){
+        alert('無法取得資料，請以line APP進入本設定系統')
+        location='https://www.google.com/'
+}
+})
