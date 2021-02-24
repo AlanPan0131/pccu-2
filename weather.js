@@ -123,4 +123,4 @@ setTimeout(()=>{
         alert('無法取得資料，請以line APP進入本設定系統')
         location='https://www.google.com/'
 }
-})
+},3000)
