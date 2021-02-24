@@ -39,7 +39,7 @@ el: '#collapseExample',
 data: {list:station}
 });
 if(!userID){
-    window.close();
+    liff.closeWindow();
 }
 if(!tdata[1].exists()){
 fetch(
