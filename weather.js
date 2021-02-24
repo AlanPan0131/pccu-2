@@ -2,7 +2,6 @@ var userID;
 var info;
 var newData={};
 var VE;
-history.pushState(null, null, '/line')
 function ajax(){
 return new Promise(function(resolve, reject) {
 var request = new XMLHttpRequest()
