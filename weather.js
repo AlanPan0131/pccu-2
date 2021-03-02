@@ -84,6 +84,14 @@ setTimeout(()=>console.log(dataFromEat),500)
 eatCheck();
 document.querySelectorAll('.load')[0].style.visibility='hidden';
 })}
+function setMenu(action){
+      var oReq = new XMLHttpRequest();
+      oReq.addEventListener("load", ()=>{
+
+      });
+      oReq.open("GET", "https://PCCU-2.panalan.repl.co?id="+userID+"&page="+action);
+      oReq.send();
+}
 function eatCheck(){
 if(!$('#customSwitch1').is(":checked")){
 document.querySelectorAll('input[type="text"]').forEach(da=>{
