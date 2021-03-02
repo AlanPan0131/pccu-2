@@ -87,7 +87,7 @@ document.querySelectorAll('.load')[0].style.visibility='hidden';
 function setMenu(action){
       var oReq = new XMLHttpRequest();
       oReq.addEventListener("load", ()=>{
-        liff.close();
+        liff.closeWindow();
       });
       oReq.open("GET", "https://PCCU-2.panalan.repl.co/setMenu?id="+userID+"&page="+action);
       oReq.send();
