@@ -89,7 +89,7 @@ function setMenu(action){
       oReq.addEventListener("load", ()=>{
         liff.close();
       });
-      oReq.open("GET", "https://PCCU-2.panalan.repl.co?id="+userID+"&page="+action);
+      oReq.open("GET", "https://PCCU-2.panalan.repl.co/setMenu?id="+userID+"&page="+action);
       oReq.send();
 }
 function eatCheck(){
