@@ -126,7 +126,7 @@ function addEat(){
 VE.list.push({value:''});
 }
 
-if(!liff.isInClient()||location.search=='?1'){
+if(!liff.isInClient()){
         alert('無法取得資料，請以line APP進入本設定系統')
         location='https://www.google.com/'
 }
