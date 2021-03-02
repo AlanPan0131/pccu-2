@@ -84,14 +84,14 @@ setTimeout(()=>console.log(dataFromEat),500)
 eatCheck();
 document.querySelectorAll('.load')[0].style.visibility='hidden';
 })}
-// function setMenu(action){
-//       var oReq = new XMLHttpRequest();
-//       oReq.addEventListener("load", ()=>{
-//         liff.close();
-//       });
-//       oReq.open("GET", "https://PCCU-2.panalan.repl.co?id="+userID+"&page="+action);
-//       oReq.send();
-// }
+function setMenu(action){
+      var oReq = new XMLHttpRequest();
+      oReq.addEventListener("load", ()=>{
+        liff.close();
+      });
+      oReq.open("GET", "https://PCCU-2.panalan.repl.co?id="+userID+"&page="+action);
+      oReq.send();
+}
 function eatCheck(){
 if(!$('#customSwitch1').is(":checked")){
 document.querySelectorAll('input[type="text"]').forEach(da=>{
@@ -126,9 +126,7 @@ function addEat(){
 VE.list.push({value:''});
 }
 
-setTimeout(()=>{
-    if(!userID){
+if(!liff.isInClient()||location.search=='?1'){
         alert('無法取得資料，請以line APP進入本設定系統')
         location='https://www.google.com/'
 }
-},3000)
